@@ -5,10 +5,8 @@
 .unread-bg { background: rgba(59, 130, 246, 0.05) !important; } 
 
 .ahla-native-content { display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--text-color, #333); }
-
 .ahla-native-content img { width: 35px !important; height: 35px !important; border-radius: 50% !important; object-fit: cover; }
 .ahla-native-content a { color: var(--primary-color, #3b82f6) !important; font-weight: bold; }
-
 .notif-date-row { display: flex; align-items: center; justify-content: flex-end; margin-top: 5px; padding-right: 45px; }
 span#customPmBadge {
     position: absolute;
@@ -36,7 +34,6 @@ span#customPmBadge {
     margin: 0 !important;
     line-height: 1 !important;
 }
-
 #customNotifBadge {
     position: absolute !important;
     top: -6px !important;     
