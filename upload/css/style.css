@@ -22,7 +22,6 @@ span#customPmBadge {
     font-weight: 700;
 }
   
-/* 1. ضبط حاوية الجرس ليجلس العداد فوقها */
 #customNotifBtn {
     position: relative !important;
     display: inline-flex !important;
