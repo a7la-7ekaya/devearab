@@ -1,0 +1,162 @@
+.cp-modern-container {
+    direction: rtl;
+    text-align: right;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 1rem;
+    animation: fadeInPage 0.4s ease; /* تأثير الظهور الناعم */
+}
+@keyframes fadeInPage { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 992px) {
+    .cp-modern-container { flex-direction: column; } /* القائمة فوق المحتوى في الجوال */
+}
+
+/* --- القائمة الجانبية المنسقة --- */
+.cp-sidebar-modern {
+    flex: 0 0 280px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+}
+/* استهداف القائمة التي يولدها النظام {UCP_TABS} وتحويلها لشكل احترافي */
+.cp-sidebar-modern ul { list-style: none; padding: 0; margin: 0; }
+.cp-sidebar-modern ul li { margin-bottom: 5px; }
+.cp-sidebar-modern ul li a {
+    display: block;
+    padding: 12px 15px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+.cp-sidebar-modern ul li a:hover {
+    background: var(--primary-color);
+    color: white;
+}
+/* تحديد القسم النشط */
+.cp-sidebar-modern ul li strong a, 
+.cp-sidebar-modern ul li a.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- منطقة المحتوى (النماذج) --- */
+.cp-inner-modern {
+    flex: 1;
+    min-width: 0; /* منع تمدد المحتوى */
+}
+
+.cp-block {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.cp-block-header {
+    background: var(--bg-color);
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cp-block-content { padding: 20px; }
+
+/* --- إصلاح الحقول والنصوص --- */
+.cp-block label {
+    display: block;
+    margin-bottom: 20px;
+}
+.cp-block label > span:first-child {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.cp-block input[type="text"],
+.cp-block input[type="password"],
+.cp-block input[type="email"],
+.cp-block select,
+.cp-block textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+.cp-block input:focus, .cp-block select:focus, .cp-block textarea:focus {
+    border-color: var(--primary-color) !important;
+    outline: none;
+}
+
+/* إصلاح الـ Radio و Checkbox */
+.radio-wrap-modern {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+.radio-wrap-modern label { margin: 0; display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.radio-wrap-modern input[type="radio"], .radio-wrap-modern input[type="checkbox"] { accent-color: var(--primary-color); width: 18px; height: 18px; }
+
+/* --- إصلاح الأزرار وإبعاد الأيقونات عن النص --- */
+.cp-form-actions {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.btn-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+    border: none;
+}
+.btn-modern i { margin-left: 8px; } /* مسافة للأيقونة على اليسار لأننا في RTL */
+
+.btn-primary { background: var(--primary-color); color: white; }
+.btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+
+.btn-secondary { background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); }
+.btn-secondary:hover { background: var(--border-color); }
+
+/* تنسيق منطقة الصورة الرمزية */
+.avatar-preview-box { text-align: center; margin-bottom: 20px; background: var(--bg-color); padding: 20px; border-radius: 12px; border: 1px dashed var(--border-color); }
+.avatar-preview-box img { max-width: 150px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 10px; }
+.avatar-preview-box p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }

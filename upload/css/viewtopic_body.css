@@ -1,0 +1,553 @@
+
+/* 1. إعداد حاوية الصورة لتستقبل النقطة */
+.flx-avatar-box {
+    position: relative;
+    display: inline-flex;
+}
+
+/* 2. رسم النقطة الدائرية فوق الصورة (أسفل اليمين) */
+.flx-avatar-box::before {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 3px solid var(--flx-card, #ffffff); /* إطار أبيض لفصلها عن الصورة */
+    z-index: 5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* 3. حالة (متصل): لون أخضر مع تأثير نبض عصري */
+article.online .flx-avatar-box::before {
+    content: '';
+    background-color: #10b981; /* لون أخضر زمردي */
+    animation: onlinePulse 2s infinite;
+}
+
+/* 4. حالة (غير متصل): لون رمادي */
+article:not(.online) .flx-avatar-box::before {
+    content: '';
+    background-color: #94a3b8; /* لون رمادي هادئ */
+}
+
+/* 5. تأثير النبض (Pulse) للمتصلين فقط */
+@keyframes onlinePulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ==========================================================================
+   (اختياري) ظهور كلمة متصل/غير متصل عند تمرير الماوس على الصورة
+   ========================================================================== */
+.flx-avatar-box::after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+article.online .flx-avatar-box::after {
+    content: 'متصل الآن';
+    background-color: #10b981;
+}
+
+article:not(.online) .flx-avatar-box::after {
+    content: 'غير متصل';
+    background-color: #94a3b8;
+}
+
+/* إظهار التلميح عند مرور الماوس */
+.flx-avatar-box:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+    bottom: calc(100% + 5px);
+}
+/* ========================================================================== */
+  
+
+
+
+
+/* حاوية الإعجابات المتداخلة */
+.flx-likers-container.stacked-avatars {
+    display: flex;
+    flex-direction: row;
+    direction: rtl; /* التداخل من اليمين لليسار */
+    padding: 15px 10px;
+    transition: all 0.4s ease;
+    align-items: center;
+}
+
+/* تصميم دائرة المعجب */
+.flx-liker-chip {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid var(--card-bg, #ffffff);
+    margin-left: -15px; /* نسبة التداخل - الأيقونات فوق بعضها */
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: inline-flex;
+    background: var(--bg-color, #f4f6f9);
+    cursor: pointer;
+}
+
+.flx-liker-chip img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* إخفاء النص الأساسي واستخدامه كتلميح فقط */
+.flx-liker-chip span {
+    display: none !important; 
+}
+
+/* الانفصال (تتباعد الأيقونات) عند تمرير الماوس على صندوق الإعجابات */
+.flx-likers-container.stacked-avatars:hover .flx-liker-chip {
+    margin-left: 8px; /* التباعد بين الأيقونات */
+    transform: translateY(-3px); /* ارتفاع خفيف للأعلى */
+}
+
+/* تلميح الاسم (Tooltip) يظهر أعلى الأيقونة */
+.flx-liker-chip::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.flx-liker-chip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+/* إبراز الأيقونة التي يقف عليها الماوس وتغيير لون إطارها */
+.flx-liker-chip:hover {
+    z-index: 5;
+    border-color: var(--primary-color, #8b5cf6);
+}
+  
+/* ================= أزرار التحكم (تعديل، اقتباس، حذف، شكر) ================= */
+    ul.profile-icons {
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    ul.profile-icons li {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: var(--flx-bg);
+        border: 1px solid var(--flx-border);
+        border-radius: 8px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    ul.profile-icons li:hover {
+        background: var(--flx-primary-light);
+        border-color: var(--flx-primary);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    /* إخفاء الصور الافتراضية الفارغة (empty.gif) مع الحفاظ على وظيفتها برمجياً */
+    ul.profile-icons li img {
+        opacity: 0 !important;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        cursor: pointer;
+    }
+
+    ul.profile-icons li a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 4;
+    }
+
+    /* إضافة أيقونات ماتيريال ديزاين لتظهر بدلاً من الصور المخفية */
+    ul.profile-icons li::after {
+        font-family: 'Material Icons';
+        font-size: 19px;
+        color: var(--flx-text-light);
+        transition: 0.3s;
+        pointer-events: none; /* هام جداً للسماح بالنقر على الزر الشفاف */
+    }
+
+    ul.profile-icons li:hover::after { color: var(--flx-primary); }
+
+    /* تحديد الأيقونة المناسبة لكل زر بناءً على الكلاس */
+    ul.profile-icons li.btn-edit::after { content: '\e3c9'; } /* Edit */
+    ul.profile-icons li.btn-delete::after { content: '\e872'; } /* Delete */
+    ul.profile-icons li.btn-quote::after { content: '\e244'; } /* Quote */
+    ul.profile-icons li.btn-quote-multi::after { content: '\e146'; } /* Multi Quote */
+    ul.profile-icons li.btn-thank::after { content: '\e87e'; } /* Thank */
+
+    /* تمييز زر الاقتباس المتعدد عند النقر عليه */
+    ul.profile-icons li.btn-quote-multi.mq-active {
+        background: var(--flx-primary);
+        border-color: var(--flx-primary);
+    }
+    ul.profile-icons li.btn-quote-multi.mq-active::after { color: #fff; }
+    
+    /* إخفاء الأزرار إذا كانت لا تحتوي على صلاحيات (فارغة) */
+    ul.profile-icons li:empty { display: none; }
+  
+  
+    .flx-topic-container {
+        font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif; 
+        direction: rtl;
+        --flx-primary: #4a6fa5; 
+        --flx-primary-light: #eef2f6;
+        --flx-bg: #f8fafc; 
+        --flx-card: #ffffff;
+        --flx-text: #1e293b; 
+        --flx-text-light: #64748b;
+        --flx-border: #e2e8f0; 
+        --flx-radius: 10px;
+        --flx-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    .flx-topic-container a { text-decoration: none; transition: 0.3s; }
+    .flx-topic-container i.material-icons { vertical-align: middle; font-size: 18px; }
+
+    /* ================= 1. الكلمات الدليلية والمشاركين ================= */
+    .flx-top-meta-wrapper { background: var(--flx-card); border: 1px solid var(--flx-border); border-radius: var(--flx-radius); padding: 15px 20px; margin-bottom: 20px; box-shadow: var(--flx-shadow); display: none; flex-direction: column; gap: 15px;}
+    .flx-auto-tags { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .flx-auto-tags .meta-title { font-weight: bold; color: var(--flx-primary); font-size: 1rem; display: flex; align-items: center; gap: 5px;}
+    .tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
+    
+    .tags-container a { background: var(--flx-bg); border: 1px solid var(--flx-border); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--flx-text); font-weight: bold; display: inline-block; transition: all 0.3s ease;}
+    .tags-container a:hover { background: var(--flx-primary); color: #fff; transform: translateY(-3px); box-shadow: 0 4px 10px rgba(74, 111, 165, 0.2); }
+
+    .flx-participants { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 15px; border-top: 1px dashed var(--flx-border); display: none;}
+    .flx-participants .meta-title { font-weight: bold; color: var(--flx-text); font-size: 1rem; display: flex; align-items: center; gap: 5px;}
+    .avatars-container { display: flex; flex-direction: row-reverse;}
+    .avatars-container span { display: inline-block; }
+    .avatars-container img { width: 38px; height: 38px; border-radius: 50%; border: 2px solid white; margin-left: -12px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); object-fit: cover;}
+    .avatars-container img:hover { transform: translateY(-5px); z-index: 10;}
+
+    /* الهيدر وأدوات الموضوع */
+    .flx-header-area { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;}
+    .flx-title-wrap h1 { font-size: 1.6rem; font-weight: 800; color: var(--flx-text); margin: 0 0 10px 0;}
+    .flx-tools-bar { display: flex; gap: 8px; margin-bottom: 10px; background: var(--flx-card); padding: 5px 10px; border-radius: 8px; border: 1px solid var(--flx-border); box-shadow: var(--flx-shadow);}
+    .flx-tools-bar a { display: flex; align-items: center; justify-content: center; gap: 5px; color: var(--flx-text-light); font-size: 0.85rem; font-weight: bold; padding: 5px 10px; border-radius: 5px;}
+    .flx-tools-bar a:hover { background: var(--flx-primary-light); color: var(--flx-primary); }
+    .flx-tools-bar a i { font-size: 16px; }
+    
+    .flx-btn-main { background: var(--flx-primary); color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; display: flex; align-items: center; gap: 8px; border: none; transition: 0.3s;}
+    .flx-btn-main:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(74, 111, 165, 0.4); color: white;}
+
+    /* أدوات الإشراف */
+    .flx-mod-tools { background: #fff3cd; border: 1px solid #ffe69c; border-radius: var(--flx-radius); padding: 15px 20px; margin: 20px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; color: #664d03; font-weight: bold; box-shadow: 0 4px 10px rgba(255, 193, 7, 0.15);}
+    .flx-mod-tools form { display: flex; align-items: center; gap: 8px; margin: 0; flex-wrap: wrap;}
+    .flx-mod-tools form img { display: none !important; } 
+    .mod-css-btn { background: #ffc107 !important; color: #000 !important; border: none; border-radius: 6px; padding: 6px 12px; font-weight: bold; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; text-decoration: none !important;}
+    .mod-css-btn:hover { background: #ffca2c !important; transform: translateY(-2px); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .mod-css-btn i { font-size: 16px; }
+
+    /* ================= 2. تصميم المشاركة والردود والصور ================= */
+    .flx-main-topic, .flx-reply-topic { background: var(--flx-card); border-radius: var(--flx-radius); border: 1px solid var(--flx-border); margin-bottom: 1.5rem; display: flex; box-shadow: var(--flx-shadow); overflow: visible; }
+    .flx-main-topic { flex-direction: column; border-top: 4px solid var(--flx-primary); margin-bottom: 2.5rem;}
+    .flx-main-content-area, .flx-reply-content-area { padding: 2rem; font-size: 1.15rem; line-height: 1.9; color: var(--flx-text); min-height: 150px;}
+    
+    .content img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); cursor: zoom-in; transition: 0.3s; margin: 10px 0;}
+    .content img.smilies { box-shadow: none; border-radius: 0; cursor: default; margin: 0; vertical-align: middle;}
+    .content img:hover:not(.smilies) { opacity: 0.85; }
+    article div#first-post-content img { max-width: 100%; width: auto; object-fit: contain; }
+    article .flx-main-topic { text-align: center; }
+
+    /* ================= كبسولات بيانات العضو والتواصل ================= */
+    .flx-bottom-profile { background: var(--flx-bg); padding: 1.5rem 2rem; border-top: 1px solid var(--flx-border); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 20px; overflow: visible;}
+    .flx-author-info { display: flex; align-items: center; gap: 15px; min-width: 150px; flex-shrink: 0; }
+    .flx-avatar-box img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--flx-card); box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
+    
+    .flx-main-topic .flx-data-contact-group { display: flex; flex-direction: row-reverse; align-items: flex-start; gap: 15px; margin-right: auto; }
+    .flx-main-topic .flx-stats-container { display: grid; grid-template-columns: max-content max-content; gap: 10px; }
+    
+    .flx-stat-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--flx-card); border: 1px solid var(--flx-border); padding: 6px 12px; border-radius: 30px; font-size: 0.85rem; color: var(--flx-text-light); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02); min-width: 150px;}
+    .flx-stat-pill strong { color: var(--flx-text); font-family: Tahoma, sans-serif; font-weight: bold;}
+
+    .flx-contact-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 10px; }
+    .flx-main-topic .flx-contact-wrapper { width: auto; min-width: 160px; margin-top: 0; }
+    
+    .flx-contact-toggle { background: var(--flx-primary-light); color: var(--flx-primary); border: 1px solid var(--flx-border); padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; transition: 0.3s; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.02); flex-direction: row;}
+    .flx-contact-toggle:hover { background: var(--flx-primary); color: white; border-color: var(--flx-primary);}
+    .flx-contact-toggle i { transition: transform 0.3s; font-size: 18px; }
+    .flx-contact-toggle.active i { transform: rotate(180deg); } 
+    
+    .flx-contact-list { display: none; background: white; padding: 12px; border-radius: 8px; border: 1px solid var(--flx-border); text-align: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.03); width: 100%; margin-top: 8px;}
+    .flx-contact-list a { display: inline-block; margin: 0 3px; transition: 0.3s; opacity: 0.8;}
+    .flx-contact-list a:hover { opacity: 1; transform: translateY(-3px); }
+
+    /* تصميم القائمة الجانبية للردود */
+    .flx-reply-topic { flex-direction: row; }
+    .flx-sidebar { width: 250px; background: var(--flx-bg); padding: 1.5rem 1rem; border-left: 1px solid var(--flx-border); display: flex; flex-direction: column; align-items: center; text-align: center; flex-shrink: 0; position: relative;}
+    .flx-sidebar .flx-avatar-box img { border-radius: 10px; margin-bottom: 10px;}
+    .flx-sidebar .flx-stats-container { display: flex; flex-direction: column; width: 100%; gap: 6px; margin-top: 15px; justify-content: center;}
+    .flx-sidebar .flx-stat-pill { width: 100%; min-width: 100%; border-radius: 6px; padding: 6px 10px; justify-content: space-between;}
+    .flx-sidebar .flx-contact-wrapper { margin-top: 10px; }
+
+    .flx-reply-body { flex: 1; display: flex; flex-direction: column; min-width: 0; justify-content: space-between;}
+    .flx-reply-header { padding: 12px 1.5rem; border-bottom: 1px solid var(--flx-border); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--flx-text-light); }
+
+    /* ================= 3. صندوق الإعجابات ومشاركة الموضوع ================= */
+    .flx-share-wrapper { margin: 0 1.5rem 1.5rem 1.5rem; display: flex; align-items: center; gap: 10px; padding: 15px; background: var(--flx-bg); border: 1px dashed var(--flx-border); border-radius: 8px;}
+    .flx-share-wrapper span { font-weight: bold; color: var(--flx-text); }
+    .flx-share-btn { width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 18px; transition: 0.3s; cursor: pointer; border: none;}
+    .flx-share-btn:hover { transform: scale(1.1); }
+    .btn-fb { background: #1877f2; }
+    .btn-tw { background: #000000; }
+    .btn-wa { background: #25d366; }
+    .btn-cp { background: #64748b; }
+
+    /* تصميم الإعجابات الجديد بالصورة والاسم (Chip) */
+    .flx-like-list-box { display: none; padding: 0 1.5rem 15px 1.5rem; margin-bottom: 5px; }
+    .flx-likes-title { font-size: 0.95rem; font-weight: bold; color: var(--flx-text-light); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .flx-likers-container { display: flex; flex-wrap: wrap; gap: 10px; }
+    .flx-liker-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--flx-bg); border: 1px dashed var(--flx-border);  border-radius: 30px; text-decoration: none !important; color: var(--flx-text); font-size: 0.85rem; font-weight: bold; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+    .flx-liker-chip:hover { background: var(--flx-primary-light); border-color: var(--flx-primary); color: var(--flx-primary); transform: translateY(-3px); }
+    .flx-liker-chip img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .flx-action-bar { padding: 12px 1.5rem; border-top: 1px solid var(--flx-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: var(--flx-card);}
+    .fa_like_div { display: flex; gap: 10px; align-items: center;}
+    .fa_like_div .vote .rep-button { background: var(--flx-bg); border: 1px solid var(--flx-border); color: var(--flx-text); padding: 8px 18px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 700; transition: 0.3s; display: flex; align-items: center; gap: 6px;}
+    .fa_like_div .vote .rep-button:hover { background: var(--flx-primary-light); color: var(--flx-primary); border-color: var(--flx-primary);}
+
+
+    /* ================= 4. صندوق الرد السريع ================= */
+    .custom-qr-wrapper { display: flex; background: #ffffff; border: 1px solid var(--flx-border); border-radius: var(--flx-radius); margin-top: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.06); overflow: hidden; min-height: 250px; }
+    .qr-user-panel { width: 180px; background: #eef2f6; display: flex; flex-direction: column; align-items: center; padding: 25px 15px; position: relative; border-left: 1px solid var(--flx-border); flex-shrink: 0; }
+    .qr-user-panel::before { content: ''; position: absolute; right: 100%; top: 40px; border-width: 12px; border-style: solid; border-color: transparent #eef2f6 transparent transparent; }
+    .qr-user-panel img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 15px; object-fit: cover; background: white; }
+    .qr-user-panel .qr-name { font-weight: 800; font-size: 1rem; color: var(--flx-text); text-align: center;}
+    .qr-user-panel .qr-status { font-size: 0.8rem; color: #2ecc71; margin-top: 5px; font-weight: bold;}
+    .qr-editor-panel { flex: 1; padding: 15px; background: #fbfbfb; display: flex; flex-direction: column; }
+    #quick_reply .panel { background: transparent !important; border: none !important; margin: 0 !important; padding: 0 !important; }
+    #quick_reply input[type="submit"] { display: none !important; }
+    .qr-editor-panel textarea { width: 100%; border: 1px solid var(--flx-border); border-radius: 6px; padding: 15px; font-family: inherit; font-size: 1.05rem; min-height: 160px; background: white; margin-top: 10px; resize: vertical; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); outline: none; }
+    .qr-editor-panel textarea:focus { border-color: var(--flx-primary); box-shadow: 0 0 0 3px var(--flx-primary-light); }
+    .qr-action-panel { width: 65px; background: #4a6fa5; display: flex; flex-direction: column; flex-shrink: 0; }
+    .qr-action-panel button { flex: 1; background: transparent; border: none; color: white; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; }
+    .qr-action-panel button:hover { background: rgba(0,0,0,0.2); }
+    .qr-action-panel button i { font-size: 28px; }
+    .btn-send-main { border-bottom: 1px solid rgba(255,255,255,0.1) !important; }
+
+    /* إعدادات الشاشات والجوال والطباعة */
+    @media print {
+        .flx-header-area div:last-child, .flx-action-bar, .flx-share-wrapper, .custom-qr-wrapper, .flx-sidebar, .flx-bottom-profile, .flx-mod-tools { display: none !important; }
+        .flx-main-topic, .flx-reply-topic { border: 1px solid #000; break-inside: avoid; flex-direction: column;}
+        body { background: #fff !important; }
+    }
+
+    @media (max-width: 768px) {
+        .flx-reply-topic, .flx-bottom-profile { flex-direction: column; }
+        .flx-bottom-profile { align-items: center; text-align: center; gap: 15px; padding: 1.5rem 1rem;}
+        .flx-author-info { min-width: 100%; justify-content: center; flex-direction: column; }
+        
+        .flx-main-topic .flx-data-contact-group { flex-direction: column; margin-right: 0; gap: 15px; width: 100%; align-items: center;}
+        .flx-main-topic .flx-stats-container { grid-template-columns: 1fr; width: 100%; }
+        .flx-main-topic .flx-contact-wrapper { width: 100%; min-width: 100%; }
+        
+        .flx-sidebar { width: 100%; border-left: none; border-bottom: 1px solid var(--flx-border); flex-direction: row; flex-wrap: wrap; padding: 1rem; align-items: center;}
+        .custom-qr-wrapper { flex-direction: column; }
+        .qr-user-panel { width: 100%; border-left: none; border-bottom: 1px solid var(--flx-border); flex-direction: row; gap: 15px; padding: 15px; align-items: center; justify-content: center;}
+        .qr-user-panel::before { display: none; }
+        .qr-user-panel img { margin-bottom: 0; width: 50px; height: 50px;}
+        .qr-action-panel { width: 100%; flex-direction: row; height: 60px;}
+        .btn-send-main { border-bottom: none !important; border-left: 1px solid rgba(255,255,255,0.1) !important; }
+    }
+    div#quick-reply-avatar,a.quick-reply-btn.quick-reply-upload i.material-icons { display: none; }
+  
+
+
+#a7la-PAGINATION {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 0 !important; /* هام جداً: يخفي النقطة (•) والمسافات الزائدة */
+    margin: 20px 0;
+    direction: rtl;
+}
+
+/* إعادة إظهار النصوص للعناصر الداخلية فقط */
+#a7la-PAGINATION * {
+    font-size: 14px;
+    font-family: 'Tajawal', 'Almarai', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* إخفاء الفاصلة (,) الافتراضية بين الأرقام بشكل نهائي */
+#a7la-PAGINATION .page-sep {
+    display: none !important;
+}
+
+
+/* --- 2. تنسيق زر "صفحة X من اصل Y" --- */
+#a7la-PAGINATION > a.mobile-hidden-imp {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 1px solid #0284c7;
+    transition: all 0.3s ease;
+}
+
+#a7la-PAGINATION > a.mobile-hidden-imp:hover {
+    background-color: #0284c7; /* أزرق داكن عند المرور */
+}
+
+
+/* --- 3. حاوية الأرقام والأسهم --- */
+#a7la-PAGINATION > span {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* المسافة بين المربعات */
+}
+
+
+/* --- 4. تنسيق مربعات أرقام الصفحات العادية --- */
+/* نستخدم :not(.pag-img) لكي لا يتأثر شكل الأسهم الدائري */
+#a7la-PAGINATION > span > a:not(.pag-img) {
+    background-color: var(--primary-color);
+    color: #fff;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #334155;
+    transition: all 0.3s ease;
+}
+
+#a7la-PAGINATION > span > a:not(.pag-img):hover {
+    background-color: #0ea5e9; /* يتحول للأزرق عند المرور */
+    color: #ffffff !important;
+    border-color: #0ea5e9;
+    transform: translateY(-2px);
+}
+
+
+/* --- 5. تنسيق مربع الصفحة الحالية (النشطة) --- */
+#a7la-PAGINATION > span > strong {
+    background-color: #475569; /* لون مميز للصفحة الحالية */
+    color: #ffffff;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.2);
+    border: 1px solid #475569;
+}
+
+
+/* --- 6. تنسيق أزرار الأسهم الدائرية (السابق / التالي) --- */
+#a7la-PAGINATION > span > a.pag-img {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* شكل دائري */
+    background-color: var(--primary-color);
+    color: #fff;
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#a7la-PAGINATION > span > a.pag-img:hover {
+    background-color: #0ea5e9; /* لون أزرق عند تمرير الماوس */
+    transform: translateY(-2px);
+}
+
+/* إخفاء الصورة الافتراضية المعطوبة إن وجدت */
+#a7la-PAGINATION > span > a.pag-img img {
+    display: none !important;
+}
+
+/* زراعة أيقونة السهم داخل الدائرة باستخدام CSS */
+#a7la-PAGINATION > span > a.pag-img::after {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    display: block;
+    margin-top: 2px;
+}
+
+
+/* --- 7. الذكاء الاصطناعي لاتجاهات الأسهم حسب الموضع --- */
+
+/* السهم الأول (الموجود على اليمين للعودة للخلف): يشير لليمين */
+#a7la-PAGINATION > span > a.pag-img:first-of-type::after {
+    content: "\276E"; /* ❯ */
+}
+
+/* السهم الأخير (الموجود على اليسار للتقدم للأمام): يشير لليسار */
+#a7la-PAGINATION > span > a.pag-img:last-of-type::after {
+    content: "\276F"; /* ❮ */
+}
+
+/* إذا كنا في الصفحة الأخيرة، يوجد سهم واحد فقط للعودة، يجب أن يبقى لليمين */
+#a7la-PAGINATION > span > a.pag-img:first-of-type:last-of-type::after {
+    content: "\276E"; /* ❯ */
+}

@@ -1,0 +1,60 @@
+    /* ================= تصميم النافذة المنبثقة ================= */
+    .greeting-modal-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        z-index: 10001;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .greeting-modal-box {
+        background: var(--card-bg);
+        border-radius: 15px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        overflow: hidden;
+        animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid var(--border-color);
+    }
+
+    @keyframes popIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .greeting-modal-header {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 1.2rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .greeting-modal-header button {
+        background: none;
+        border: none;
+        color: rgba(255,255,255,0.7);
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .greeting-modal-header button:hover {
+        color: #fff;
+        transform: rotate(90deg);
+    }
+
+    .greeting-modal-body {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        color: var(--text-color);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }

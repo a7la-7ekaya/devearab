@@ -1,0 +1,4 @@
+   .posting-preview-box { background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); border-top: 4px solid var(--primary-color); margin-bottom: 2rem; direction: rtl; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; }
+    .posting-preview-header { background: var(--bg-color); padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color); font-weight: bold; font-size: 1.1rem; color: var(--text-color); display: flex; align-items: center; gap: 8px; }
+    .posting-preview-content { padding: 1.5rem; line-height: 1.8; color: var(--text-color); font-size: 1.05rem; }
+    .posting-preview-content img { max-width: 100%; height: auto; border-radius: 8px; }

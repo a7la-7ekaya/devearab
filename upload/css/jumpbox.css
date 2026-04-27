@@ -1,0 +1,62 @@
+
+    .modern-jumpbox-container {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-top: 2rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .modern-jumpbox-container span {
+        font-weight: bold;
+        color: var(--text-color);
+    }
+
+    .modern-jumpbox-wrap {
+        display: flex;
+        gap: 10px;
+    }
+
+    .modern-jumpbox-wrap select {
+        /* padding: 8px 15px; */
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-color);
+        color: var(--text-color);
+        font-family: inherit;
+        font-size: 0.95rem;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .modern-jumpbox-wrap select:focus {
+        border-color: var(--primary-color);
+    }
+
+    .modern-jumpbox-wrap input[type="submit"] {
+        background: var(--primary-color);
+        color: #fff;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-family: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .modern-jumpbox-wrap input[type="submit"]:hover {
+        background: var(--text-color);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+        .modern-jumpbox-container { flex-direction: column; align-items: flex-start; }
+        .modern-jumpbox-wrap { width: 100%; flex-direction: column; }
+        .modern-jumpbox-wrap select { width: 100%; }
+    }

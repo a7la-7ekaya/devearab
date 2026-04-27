@@ -1,0 +1,151 @@
+
+/* 1. فرض الاتجاه من اليمين لليسار على كامل النموذج */
+form[name="post"] {
+    direction: rtl !important;
+    text-align: right !important;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 2. البطاقات (Cards) الأساسية لكل قسم */
+.modern-card {
+    background: var(--card-bg, #ffffff);
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e5e7eb);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.modern-card-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-color, #8b5cf6);
+    border-bottom: 2px solid var(--border-color, #e5e7eb);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 3. تنسيق الحقول النصية (Inputs & Textareas) الشامل */
+.modern-card input[type="text"], 
+.modern-card input[type="url"],
+.modern-card input[type="number"],
+.modern-card textarea,
+.modern-card select,
+.input-subtle {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color, #e5e7eb);
+    border-radius: 8px;
+    background: var(--bg-color, #f4f6f9);
+    color: var(--text-color, #1f2937);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    min-width: 100%;
+}
+
+.modern-card input[type="text"]:focus, 
+.modern-card textarea:focus,
+.input-subtle:focus {
+    border-color: var(--primary-color, #8b5cf6);
+    outline: none;
+    background: var(--card-bg, #ffffff);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* ========================================================
+   قسم الرسائل الخاصة والإعدادات العلوية المفقودة
+   ======================================================== */
+.pm-section-wrapper { display: flex; flex-direction: column; gap: 15px; }
+.pm-input-row { display: flex; align-items: flex-start; gap: 15px; flex-wrap: wrap; }
+.pm-label { font-weight: bold; color: var(--text-color); min-width: 120px; padding-top: 12px; }
+.btn-pm {
+    background: var(--bg-color); border: 2px solid var(--border-color); color: var(--text-color);
+    padding: 10px 15px; border-radius: 8px; cursor: pointer; transition: 0.3s;
+    display: inline-flex; align-items: center; gap: 5px; font-family: inherit; font-weight: bold;
+}
+.btn-pm:hover { border-color: var(--primary-color); color: var(--primary-color); background: var(--card-bg); }
+
+/* 4. قسم "الصندوق الماسي" */
+.diamond-layout {
+    display: flex; gap: 20px; align-items: flex-start; width: 100%; flex-direction: row-reverse;
+}
+.diamond-smilies {
+    width: 250px; flex-shrink: 0; background: var(--bg-color, #f4f6f9); border-radius: 10px; border: 1px solid var(--border-color, #e5e7eb); padding: 15px;
+}
+#smileyContainer { display: grid; grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 8px; max-height: 450px; overflow-y: auto; text-align: center; }
+#smileyContainer img { cursor: pointer; transition: 0.2s; max-width: 100%; }
+#smileyContainer img:hover { transform: scale(1.4); }
+
+.diamond-editor { flex-grow: 1; width: 100%; min-width: 0; display: flex; flex-direction: column; gap: 15px; }
+
+/* شريط أيقونات الموضوع */
+.post-icons-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; background: var(--bg-color, #f4f6f9); border: 1px solid var(--border-color, #e5e7eb); padding: 10px 15px; border-radius: 8px; width: 100%; }
+.post-icons-toolbar > span.title { font-weight: bold; color: var(--primary-color, #8b5cf6); margin-left: 10px; }
+.post-icons-toolbar label { cursor: pointer; display: flex; align-items: center; }
+.post-icons-toolbar input[type="radio"] { display: none; }
+.post-icons-toolbar img { padding: 4px; border-radius: 6px; border: 2px solid transparent; transition: 0.2s; }
+.post-icons-toolbar input[type="radio"]:checked + span img { border-color: var(--primary-color, #8b5cf6); background: rgba(139, 92, 246, 0.1); transform: scale(1.15); }
+
+/* إجبار محرر SCEditor على التمدد 100% وعمل إطار واضح له */
+#message-box, #textarea_content { width: 100% !important; float: none !important; }
+.sceditor-container { width: 100% !important; border: 2px solid var(--border-color, #d1d5db) !important; border-radius: 8px !important; box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important; overflow: hidden !important; }
+.sceditor-toolbar { background: var(--bg-color, #f4f6f9) !important; border-bottom: 2px solid var(--border-color, #d1d5db) !important; padding: 10px !important; text-align: right !important; }
+textarea#text_editor_textarea { width: 100% !important; min-height: 350px; border-radius: 8px; padding: 15px; resize: vertical; border: 2px solid var(--border-color, #d1d5db); }
+
+/* 5. أزرار الإرسال والمعاينة */
+.submit-buttons-wrapper { display: flex; justify-content: center; gap: 15px; margin-top: 10px; padding: 20px; background: var(--bg-color, #f4f6f9); border: 1px dashed var(--border-color, #e5e7eb); border-radius: 12px; }
+.submit-buttons-wrapper button, .submit-buttons-wrapper input[type="submit"] { padding: 12px 40px; font-size: 1.15rem; font-weight: bold; border-radius: 8px; font-family: inherit; cursor: pointer; transition: 0.3s; border: none; display: flex; align-items: center; gap: 8px; }
+.btn-submit-main { background: var(--primary-color, #8b5cf6); color: white; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); }
+.btn-submit-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5); }
+.btn-submit-sec { background: var(--card-bg, #ffffff); color: var(--text-color, #1f2937); border: 2px solid var(--border-color, #e5e7eb) !important; }
+.btn-submit-sec:hover { border-color: var(--primary-color, #8b5cf6) !important; color: var(--primary-color, #8b5cf6); }
+
+/* 6. تنسيق المرفقات */
+.attachment-info-box { background: var(--bg-color); border: 1px dashed var(--border-color); padding: 15px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted); }
+.attachment-upload-row { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; margin-bottom: 15px; }
+.attachment-upload-row input[type="file"] { padding: 10px; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; }
+.btn-upload-file { background: var(--primary-color); color: white; padding: 10px 25px; border-radius: 8px; border: none; font-weight: bold; font-family: inherit; cursor: pointer; transition: 0.3s; }
+.btn-upload-file:hover { background: var(--text-color); }
+.uploaded-item { background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 10px; }
+
+/* 7. الخيارات السفلية والاستطلاع */
+.options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.options-grid label { display: flex; align-items: center; gap: 10px; font-weight: 500; cursor: pointer; padding: 10px; background: var(--bg-color, #f4f6f9); border-radius: 8px; border: 1px solid var(--border-color, #e5e7eb); transition: 0.2s; }
+.options-grid label:hover { border-color: var(--primary-color, #8b5cf6); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--primary-color, #8b5cf6); width: 18px; height: 18px; cursor: pointer; }
+
+.s-type-toggle { display: flex; flex-wrap: wrap; gap: 20px; background: var(--bg-color, #f4f6f9); padding: 15px; border-radius: 8px; border: 1px dashed var(--border-color, #e5e7eb); margin-top: 15px; }
+.s-type-toggle label { display: flex; align-items: center; gap: 5px; font-weight: bold; cursor: pointer; }
+
+.poll-wrapper-hook { background: var(--card-bg, #ffffff); border-radius: 12px; border: 1px solid var(--border-color, #e5e7eb); padding: 20px; margin-bottom: 20px; }
+.poll-wrapper-hook table.forumline { width: 100%; border-collapse: collapse; }
+.poll-wrapper-hook th { font-size: 1.2rem; font-weight: 800; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 12px; margin-bottom: 15px; text-align: right; background: transparent; }
+.poll-wrapper-hook td { padding: 12px 5px; border-bottom: 1px dashed var(--border-color); text-align: right; }
+.poll-wrapper-hook tr:last-child td { border-bottom: none; }
+.poll-wrapper-hook td:first-child { font-weight: bold; width: 35%; color: var(--text-color); }
+.poll-wrapper-hook td:last-child { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+.poll-wrapper-hook input[type="text"], .poll-wrapper-hook textarea { width: 100%; padding: 10px 15px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-color); font-family: inherit; font-size: 1rem; }
+
+.cal-section dl, .seo-section dl { margin-bottom: 15px; display: flex; flex-direction: column; gap: 8px; }
+.cal-section dt, .seo-section dt { font-weight: bold; color: var(--text-color); }
+.seo-section dd input, .seo-section dd textarea { width: 100%; max-width: 100%; }
+.cal-section dd { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cal-section dd select, .cal-section dd input { padding: 8px 12px; min-width: 80px; }
+.label-description { font-size: 0.85rem; color: var(--text-muted, #6b7280); }
+
+/* التجاوب مع الجوال */
+@media (max-width: 992px) {
+    .diamond-layout { flex-direction: column-reverse; }
+    .diamond-smilies, .diamond-editor { width: 100%; }
+    .submit-buttons-wrapper { flex-direction: column; }
+    .submit-buttons-wrapper button, .submit-buttons-wrapper input[type="submit"] { width: 100%; justify-content: center;}
+    .poll-wrapper-hook td:first-child { width: 100%; display: block; padding-bottom: 5px; border-bottom: none;}
+    .poll-wrapper-hook td:last-child { width: 100%; display: flex; padding-top: 0;}
+    .attachment-upload-row input[type="file"], .btn-upload-file { width: 100%; }
+}

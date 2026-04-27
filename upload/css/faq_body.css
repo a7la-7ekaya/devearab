@@ -1,0 +1,22 @@
+    .modern-faq-page { direction: rtl; text-align: right; }
+    .modern-faq-header { color: var(--primary-color); font-size: 1.6rem; border-right: 4px solid var(--primary-color); padding-right: 15px; margin-bottom: 2rem; }
+    
+    .modern-faq-toc {
+        background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+    .modern-faq-toc dt { font-size: 1.2rem; font-weight: bold; color: var(--primary-color); margin-bottom: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; }
+    .modern-faq-toc dd { margin: 0 0 8px 0; padding-right: 15px; position: relative; }
+    .modern-faq-toc dd::before { content: "\f104"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; right: 0; color: var(--text-muted); }
+    .modern-faq-toc a { color: var(--text-color); transition: 0.2s; }
+    .modern-faq-toc a:hover { color: var(--primary-color); }
+    
+    .modern-faq-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .modern-faq-section-title { font-size: 1.3rem; color: #fff; background: var(--primary-color); padding: 10px 15px; border-radius: 8px; margin-bottom: 1.5rem; }
+    
+    .modern-qa-box { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); }
+    .modern-qa-box:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .modern-qa-box dt { font-size: 1.15rem; font-weight: bold; color: var(--text-color); margin-bottom: 10px; display: flex; gap: 10px; }
+    .modern-qa-box dt i { color: #10b981; } /* لون أخضر لأيقونة السؤال */
+    .modern-qa-box dd.answer { margin: 0; padding-right: 25px; line-height: 1.7; color: var(--text-muted); }
+    .modern-qa-box dd.back-top { margin: 15px 25px 0 0; }
+    .modern-qa-box dd.back-top a { background: var(--bg-color); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--primary-color); }

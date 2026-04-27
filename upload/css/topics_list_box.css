@@ -1,0 +1,57 @@
+    .topic-item { transition: all 0.3s ease; padding: 1.2rem 1.5rem !important; border-bottom: 1px solid var(--border-color); }
+    .topic-item:last-child { border-bottom: none; }
+    .topic-item:hover { background-color: var(--bg-color); }
+    
+    /* إخفاء صور المنتدى الافتراضية */
+    .modern-topic-icon { 
+        width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; position: relative; color: transparent !important; font-size: 0px !important; overflow: hidden;
+    }
+    .modern-topic-icon img { display: none !important; }
+    
+    /* تجهيز أيقونة FontAwesome */
+    .modern-topic-icon::before { 
+        font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 1.5rem !important; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); 
+    }
+    
+    /* 1. موضوع عادي (رمادي) */
+    .modern-topic-icon { background: rgba(156, 163, 175, 0.1); }
+    .modern-topic-icon::before { content: "\f15c"; color: #9ca3af; }
+    
+    /* 2. موضوع جديد (أخضر) */
+    .modern-topic-icon.folder_new, .modern-topic-icon.folder_new_hot { background: rgba(16, 185, 129, 0.1) !important; }
+    .modern-topic-icon.folder_new::before, .modern-topic-icon.folder_new_hot::before { content: "\f0e0" !important; color: #10b981 !important; }
+    
+    /* 3. موضوع مثبت (برتقالي) */
+    .modern-topic-icon.folder_sticky, .modern-topic-icon.folder_sticky_new { background: rgba(245, 158, 11, 0.1) !important; }
+    .modern-topic-icon.folder_sticky::before, .modern-topic-icon.folder_sticky_new::before { content: "\f08d" !important; color: #f59e0b !important; }
+    
+    /* 4. إعلان (أزرق) */
+    .modern-topic-icon.folder_announce, .modern-topic-icon.folder_announce_new { background: rgba(59, 130, 246, 0.1) !important; }
+    .modern-topic-icon.folder_announce::before, .modern-topic-icon.folder_announce_new::before { content: "\f0a1" !important; color: #3b82f6 !important; }
+    
+    /* 5. إعلان عام (أحمر) */
+    .modern-topic-icon.folder_global, .modern-topic-icon.folder_global_new { background: rgba(239, 68, 68, 0.1) !important; }
+    .modern-topic-icon.folder_global::before, .modern-topic-icon.folder_global_new::before { content: "\f0ac" !important; color: #ef4444 !important; }
+    
+    /* 6. موضوع مغلق (داكن) */
+    .modern-topic-icon.folder_lock, .modern-topic-icon.folder_lock_new { background: rgba(75, 85, 99, 0.1) !important; }
+    .modern-topic-icon.folder_lock::before, .modern-topic-icon.folder_lock_new::before { content: "\f023" !important; color: #4b5563 !important; }
+
+    /* معلومات الموضوع */
+    .topic-title-link { font-size: 1.1rem; font-weight: 800; color: var(--text-color); margin-bottom: 5px; display: inline-block; }
+    .topic-meta-info { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
+    .modern-stats { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted); min-width: 120px; }
+    
+    /* آخر مشاركة */
+    .modern-last-post { display: flex; align-items: center; justify-content: flex-end; gap: 15px; min-width: 250px; direction: ltr; }
+    .avatar-wrapper img { width: 45px !important; height: 45px !important; border-radius: 50% !important; object-fit: cover !important; border: 2px solid var(--border-color) !important; padding: 2px; background: var(--card-bg); flex-shrink: 0; display: block; }
+    
+    .mlp-info { display: flex; flex-direction: column; text-align: right; gap: 5px; direction: rtl; }
+    .mlp-author { font-weight: bold; color: var(--primary-color); font-size: 0.95rem; }
+    .mlp-date { font-size: 0.8rem; color: var(--text-muted); }
+  h2#cattitle {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}

@@ -1,0 +1,33 @@
+    .modern-modcp-page { direction: rtl; text-align: right; }
+    .modern-modcp-header { border-right: 4px solid var(--primary-color); padding-right: 15px; margin-bottom: 2rem; }
+    .modern-modcp-header h1 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 10px; }
+    .modern-breadcrumbs { font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .modern-breadcrumbs a { color: var(--primary-color); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+    .modern-modcp-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+    .modern-modcp-table th { background: var(--primary-color); color: white; padding: 15px; font-size: 1rem; text-align: right; }
+    .modern-modcp-table td { padding: 15px; border-bottom: 1px solid var(--border-color); color: var(--text-color); vertical-align: middle; }
+    .modern-modcp-table tr:hover td { background: var(--bg-color); }
+    .modern-modcp-table td.icon { width: 50px; text-align: center; }
+    
+    .modern-topic-title { font-size: 1.1rem; font-weight: bold; color: var(--text-color); display: block; margin-bottom: 5px; }
+    .modern-topic-title:hover { color: var(--primary-color); }
+    .modern-topic-meta { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Checkbox مخصص */
+    .modern-checkbox-wrap { display: flex; justify-content: center; align-items: center; }
+    .modern-checkbox-wrap input[type="checkbox"] { width: 20px; height: 20px; accent-color: #ef4444; cursor: pointer; }
+
+    /* استجابة الجدول للجوال */
+    @media (max-width: 768px) {
+        .modern-modcp-table thead { display: none; }
+        .modern-modcp-table tr { display: block; border-bottom: 2px solid var(--primary-color); position: relative; padding-right: 50px; }
+        .modern-modcp-table td { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding: 10px; }
+        .modern-modcp-table td.icon { position: absolute; right: 0; top: 0; height: 100%; width: 50px; border-bottom: none; border-left: 1px dashed var(--border-color); }
+        .modern-modcp-table td::before { content: attr(data-th); font-weight: bold; color: var(--text-muted); }
+    }
+
+    .modern-modcp-actions { background: var(--card-bg); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
+    .btn-mod { padding: 10px 15px; border-radius: 8px; font-family: inherit; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px; background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); }
+    .btn-mod:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); transform: translateY(-2px); }
+    .btn-mod-danger:hover { background: #ef4444; color: white; border-color: #ef4444; }

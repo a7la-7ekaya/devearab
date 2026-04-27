@@ -1,0 +1,167 @@
+
+.color-palette { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.color-circle { width: 30px; height: 30px; margin-bottom: 5px; }
+
+
+.board-image-wrap { display: contents; }
+.topic-thumbnail { display: none; }
+
+
+body.grid-layout .forum-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+body.grid-layout span.cat-title {
+    grid-column: 1 / -1;
+    background: var(--card-bg);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 0;
+    border: 1px solid var(--border-color);
+}
+.lp-meta strong span strong {
+    padding-right: 5px;
+}
+body.grid-layout .board-row {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* حواف ناعمة للبطاقة */
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.grid-layout .board-row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* 1. ترتيب الهيدر (اسم القسم) */
+body.grid-layout .board-main {
+    order: 1;
+    background: var(--primary-color);
+    padding: 12px 15px;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    border: none;
+    z-index: 10;
+}
+body.grid-layout .board-icon,
+body.grid-layout .board-info p,
+body.grid-layout .sub-boards-btn,
+body.grid-layout .sub-boards-container { display: none; }
+
+body.grid-layout .board-info h3 { margin: 0; text-align: center; font-size: 1.1rem; }
+body.grid-layout .board-info h3 a { color: white; }
+
+/* 2. دمج الصورة وتفاصيل الموضوع (تأثير السلايدر) */
+body.grid-layout .board-image-wrap {
+    order: 2;
+    display: block; /* تفعيل الغلاف في وضع الشبكة */
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+body.grid-layout .topic-thumbnail {
+    display: flex;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--border-color);
+    background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80');
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease; /* سرعة تأثير التقريب */
+}
+
+/* تأثير التكبير عند تمرير الماوس */
+body.grid-layout .board-row:hover .topic-thumbnail {
+    transform: scale(1.1);
+}
+
+/* التدرج اللوني الأسود فوق الصورة ليوضح النص */
+body.grid-layout .topic-thumbnail::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+}
+
+body.grid-layout .topic-thumbnail i { font-size: 3rem; color: rgba(255,255,255,0.4); z-index: 1; }
+
+/* 3. تفاصيل الموضوع الأخير (فوق الصورة) */
+body.grid-layout .board-last-post {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 15px 20px;
+    background: transparent;
+    border: none;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+    z-index: 5;
+}
+
+body.grid-layout .lp-avatar { display: none; }
+
+body.grid-layout .lp-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    /* حل مشكلة النص الطويل والنقاط */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* أقصى حد سطرين */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+body.grid-layout .lp-title a { color: white !important; transition: color 0.3s; }
+body.grid-layout .lp-title a:hover { color: var(--primary-color) !important; }
+
+body.grid-layout .lp-meta {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+body.grid-layout .lp-meta a, body.grid-layout .lp-meta strong { color: #facc15 !important; } /* لون ذهبي للمؤلف */
+
+/* 4. الإحصائيات (الفوتر الأسود) */
+body.grid-layout .board-stats {
+    order: 3;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    background: #27272a;
+    color: white;
+    padding: 12px 20px;
+    width: 100%;
+    border: none;
+    margin-top: auto; /* يضمن بقاء الفوتر في الأسفل */
+}
+body.grid-layout .stat-badge { color: #e4e4e7; font-weight: 700; font-size: 0.9rem; }
+body.grid-layout .stat-badge i { color: #a1a1aa; }
+
+/* توافق الجوال للشبكة */
+@media (max-width: 768px) {
+    body.grid-layout .board-row { flex: 1 1 100%; }
+}

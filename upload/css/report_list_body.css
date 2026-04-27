@@ -1,0 +1,26 @@
+    .modern-report-list-page { direction: rtl; text-align: right; }
+    
+    .modern-controls-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 15px; }
+    .modern-controls-top select { padding: 8px 15px; border: 2px solid var(--border-color); border-radius: 8px; font-family: inherit; outline: none; background: var(--card-bg); color: var(--text-color); }
+    
+    .modern-report-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+    .modern-report-table th { background: var(--primary-color); color: white; padding: 15px; font-size: 1rem; text-align: right; }
+    .modern-report-table td { padding: 15px; border-bottom: 1px solid var(--border-color); color: var(--text-color); vertical-align: middle; }
+    .modern-report-table tr:hover td { background: var(--bg-color); }
+    .modern-report-table a { color: var(--primary-color); font-weight: bold; }
+    
+    .modern-checkbox { width: 18px; height: 18px; accent-color: #ef4444; cursor: pointer; }
+
+    @media (max-width: 768px) {
+        .modern-report-table thead { display: none; }
+        .modern-report-table tr { display: block; border-bottom: 2px solid var(--primary-color); }
+        .modern-report-table td { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding: 10px; }
+        .modern-report-table td::before { content: attr(data-th); font-weight: bold; color: var(--text-muted); }
+    }
+
+    .modern-report-actions { background: var(--card-bg); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .btn-rep { padding: 10px 20px; border-radius: 8px; font-family: inherit; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; color: white; }
+    .btn-rep-view { background: #3b82f6; } .btn-rep-view:hover { background: #2563eb; }
+    .btn-rep-edit { background: #f59e0b; } .btn-rep-edit:hover { background: #d97706; }
+    .btn-rep-status { background: #10b981; } .btn-rep-status:hover { background: #059669; }
+    .btn-rep-del { background: #ef4444; } .btn-rep-del:hover { background: #dc2626; }

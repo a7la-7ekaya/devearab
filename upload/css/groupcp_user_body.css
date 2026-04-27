@@ -1,0 +1,20 @@
+    .modern-user-groups { direction: rtl; text-align: right; }
+    .modern-ug-header { border-right: 4px solid var(--primary-color); padding-right: 15px; margin-bottom: 2rem; }
+    .modern-ug-header h1 { color: var(--primary-color); font-size: 1.8rem; margin: 0; }
+
+    .modern-ug-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+    .modern-ug-title { font-size: 1.2rem; font-weight: bold; color: var(--text-color); margin-bottom: 1.5rem; padding-bottom: 10px; border-bottom: 1px dashed var(--border-color); display: flex; align-items: center; gap: 10px; }
+
+    .modern-ug-select-wrap { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .modern-ug-select { padding: 10px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-color); font-family: inherit; font-size: 1rem; outline: none; min-width: 200px; }
+    .modern-ug-select:focus { border-color: var(--primary-color); }
+    
+    .modern-btn { padding: 10px 20px; border-radius: 8px; font-family: inherit; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; background: var(--primary-color); color: white; display: inline-flex; align-items: center; gap: 8px; }
+    .modern-btn:hover { background: var(--text-color); transform: translateY(-2px); }
+
+    /* قائمة كل المجموعات (شبكة بطاقات صغيرة) */
+    .modern-all-groups-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; list-style: none; padding: 0; margin: 0; }
+    .modern-group-item { background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 15px; transition: 0.3s; display: flex; flex-direction: column; gap: 8px; }
+    .modern-group-item:hover { border-color: var(--primary-color); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .modern-group-item a { font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+    .modern-group-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; justify-content: space-between; border-top: 1px dashed var(--border-color); padding-top: 8px; mt-2; }

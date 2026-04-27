@@ -1,0 +1,35 @@
+.forum-message-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    margin: 3rem auto;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+}
+
+.forum-message-card .msg-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.forum-message-card .msg-title i {
+    font-size: 1.8rem;
+}
+
+.forum-message-card .msg-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    font-weight: 500;
+}

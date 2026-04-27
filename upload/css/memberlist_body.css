@@ -1,0 +1,210 @@
+
+
+.flx-page-header {
+    background: var(--card-bg);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.flx-page-header h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row-reverse;  
+}
+button.btn.btn-default i.fas.fa-filter::before {
+    /* margin-left: 9px; */
+    margin-right: 15px;
+}
+/* شريط الفلترة والبحث */
+.flx-filter-box {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.flx-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-group {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-group i {
+    position: absolute;
+    right: 15px;
+    color: var(--text-muted);
+}
+
+.flx-search-input {
+    width: 100%;
+    padding: 10px 15px 10px 40px !important;
+}
+
+.select-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0 !important;
+}
+
+.select-group select {
+        /* padding: 8px 12px !important; */
+    border-radius: 6px !important;
+      /* width: auto !important;*/
+}
+.select {
+    position: relative;
+    max-width: 100px;
+    width: 100px;
+}
+
+/* شبكة الأعضاء (الكروت) */
+.flx-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.flx-member-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.flx-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--primary-color);
+}
+
+.member-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.member-rank-num {
+    background: var(--bg-color);
+    color: var(--text-muted);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.member-actions a {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-right: 8px;
+    transition: 0.2s;
+}
+.member-actions a:hover { color: var(--primary-color); }
+.member-actions img { max-width: 20px; } /* لحماية أيقونات أحلى منتدى القديمة */
+
+.member-avatar-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.avatar-wrapper {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(45deg, var(--primary-color), #a78bfa);
+}
+
+.avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--card-bg);
+}
+
+.member-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-color);
+    display: block;
+}
+.member-name:hover { color: var(--primary-color); }
+
+.member-stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    width: calc(50% - 5px);
+}
+
+.stat-item.full-width {
+    width: 100%;
+}
+
+.stat-item i {
+    color: var(--primary-color);
+    width: 15px;
+    text-align: center;
+}
+
+/* رسالة عدم وجود أعضاء */
+.no-members-found {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    color: var(--text-muted);
+}
+.no-members-found i { font-size: 3rem; margin-bottom: 15px; color: var(--border-color); }
+
+/* الترقيم (Pagination) */
+.flx-pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}     

@@ -1,0 +1,7 @@
+    .modern-move-page { direction: rtl; text-align: right; }
+    .modern-move-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; max-width: 600px; margin: 2rem auto; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+    .modern-move-card select { width: 100%; /* padding: 12px; */ border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-color); font-family: inherit; font-size: 1rem; margin-top: 10px; margin-bottom: 20px; outline: none; }
+    .modern-move-card select:focus { border-color: var(--primary-color); }
+    .modern-move-checkbox { display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: bold; margin-bottom: 20px; color: var(--text-color); }
+    .modern-move-checkbox input { width: 20px; height: 20px; accent-color: var(--primary-color); }
+    .modern-move-msg { background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-right: 4px solid #ef4444; font-weight: bold; }

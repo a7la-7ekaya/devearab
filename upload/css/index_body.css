@@ -1,0 +1,166 @@
+
+.fb-notif-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; border-bottom: 1px solid #e5e7eb; background: #fff; border-radius: 8px 8px 0 0; }
+.fb-notif-title { font-weight: bold; font-size: 1.1rem; color: #050505; }
+.fb-mark-read { font-size: 0.85rem; color: #1877f2; text-decoration: none; font-weight: 500; cursor: pointer; }
+.fb-mark-read:hover { text-decoration: underline; }
+
+.notif-item-fb { display: flex; align-items: flex-start; padding: 12px 15px; border-bottom: 1px solid #f0f2f5; transition: 0.2s; position: relative; background: #fff; cursor: pointer; }
+.notif-item-fb:hover { background: #f2f2f2; }
+.notif-item-fb.unread { background: #eaf3ff; /* لون الفيسبوك للإشعار الجديد */ }
+
+.unread-dot { width: 12px; height: 12px; background: #1877f2; border-radius: 50%; margin-top: 15px; margin-right: 10px; flex-shrink: 0; display: none; }
+.notif-item-fb.unread .unread-dot { display: block; }
+
+/* أزرار طلب الصداقة */
+.friend-req-actions { display: flex; gap: 8px; margin-top: 8px; }
+.btn-fb-accept { background: #1877f2; color: #fff; border: none; padding: 6px 15px; border-radius: 6px; font-weight: bold; cursor: pointer; flex: 1; transition: 0.2s; font-family: inherit;}
+.btn-fb-accept:hover { background: #166fe5; }
+.btn-fb-reject { background: #e4e6eb; color: #050505; border: none; padding: 6px 15px; border-radius: 6px; font-weight: bold; cursor: pointer; flex: 1; transition: 0.2s; font-family: inherit;}
+.btn-fb-reject:hover { background: #d8dadf; }
+.req-success-msg { font-size: 0.85rem; font-weight: bold; color: #65676b; margin-top: 5px; }
+
+     
+
+.advanced-stats {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    direction: rtl;
+}
+
+.adv-stats-header {
+    background: var(--bg-color);
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* الكروت العلوية */
+.adv-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.adv-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-color);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.adv-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.adv-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.adv-card strong {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.2;
+}
+
+.adv-card span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* الصفوف السفلية (المتواجدون، الطاقم..) */
+.adv-stats-rows {
+    padding: 0 20px;
+}
+
+.adv-row {
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+.adv-row:last-child { border-bottom: none; }
+
+.adv-row-title {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+}
+.adv-row-title i { color: var(--text-muted); }
+
+.adv-row-content {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.adv-row-content strong, .adv-row-content a { /* color: var(--text-color);*/ font-weight: bold; }
+.adv-row-content a:hover { color: var(--primary-color); }
+
+/* أوسمة المجموعات (Legend) */
+.groups-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.g-badge {
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ألوان المجموعات */
+.gb-admin { background-color: #e11d48; }
+.gb-management { background-color: #be123c; }
+.gb-supermod { background-color: #1d4ed8; }
+.gb-mod { background-color: #15803d; }
+.gb-vip { background-color: #9333ea; }
+.gb-member { background-color: #6366f1; }
+.gb-banned { background-color: #1c1917; }
+
+
+
+  .adv-card strong {
+    font-size: 0;
+}
+
+.adv-card strong strong,strong.adv-DESCRIPTION,strong.adv-NEWEST-USER strong{
+    font-size: 25px;
+    font-weight: 900;
+}
+
+  div.groups-legend em, strong.adv-NEWEST-USER {
+    font-size: 0;
+}

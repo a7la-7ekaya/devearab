@@ -1,0 +1,41 @@
+    body { margin: 0; font-family: 'Tajawal', sans-serif; background: var(--bg-color); color: var(--text-color); }
+    .modern-popup-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
+        display: flex; justify-content: center; align-items: center; z-index: 10000;
+        direction: rtl; text-align: right;
+    }
+    .modern-popup-box {
+        background: var(--card-bg); border-radius: 15px; width: 90%; max-width: 450px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2); overflow: hidden;
+        border: 1px solid var(--border-color); animation: popIn 0.3s ease-out;
+    }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    
+    .modern-popup-header {
+        background: var(--primary-color); color: white; padding: 1.2rem 1.5rem;
+        display: flex; justify-content: space-between; align-items: center;
+        font-size: 1.2rem; font-weight: bold;
+    }
+    .modern-popup-header button {
+        background: none; border: none; color: rgba(255,255,255,0.8); font-size: 1.2rem; cursor: pointer; transition: 0.3s;
+    }
+    .modern-popup-header button:hover { color: white; transform: rotate(90deg); }
+    
+    .modern-popup-body { padding: 2rem 1.5rem; }
+    .modern-popup-body i { display: block; margin-bottom: 15px; color: var(--text-muted); font-style: normal; font-size: 0.95rem; }
+    
+    .modern-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+    .modern-popup-input {
+        flex: 1; padding: 10px 15px; border: 2px solid var(--border-color);
+        border-radius: 8px; background: var(--bg-color); color: var(--text-color); font-family: inherit; outline: none; transition: 0.3s;
+    }
+    .modern-popup-input:focus { border-color: var(--primary-color); }
+    
+    .btn-modern-submit {
+        background: var(--primary-color); color: white; border: none; padding: 10px 20px;
+        border-radius: 8px; cursor: pointer; font-family: inherit; font-weight: bold; transition: 0.3s;
+    }
+    .btn-modern-submit:hover { opacity: 0.9; transform: translateY(-2px); }
+    
+    .modern-select-group { border-top: 1px dashed var(--border-color); padding-top: 20px; display: flex; gap: 10px; }

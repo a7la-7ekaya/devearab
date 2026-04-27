@@ -1,0 +1,42 @@
+
+    .modern-credits-page { direction: rtl; text-align: right; }
+    .modern-credits-header { margin-bottom: 1.5rem; border-right: 4px solid var(--primary-color); padding-right: 15px;}
+    .modern-credits-header h1 { color: var(--primary-color); font-size: 1.6rem; }
+    
+    .modern-credits-block {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+    .modern-credits-block-title {
+        font-size: 1.2rem; font-weight: bold; margin-bottom: 1.5rem;
+        padding-bottom: 10px; border-bottom: 1px solid var(--border-color);
+        color: var(--text-color);
+    }
+    
+    .modern-payment-methods {
+        display: flex; flex-direction: column; gap: 15px;
+    }
+    .modern-pay-card {
+        border: 2px solid var(--border-color);
+        border-radius: 10px;
+        padding: 15px;
+        background: var(--bg-color);
+        transition: 0.3s;
+    }
+    .modern-pay-card:hover { border-color: var(--primary-color); }
+    .modern-pay-card label {
+        display: flex; align-items: center; gap: 15px; cursor: pointer; font-size: 1.1rem; font-weight: bold; color: var(--text-color);
+    }
+    .modern-pay-card input[type="radio"] { width: 20px; height: 20px; accent-color: var(--primary-color); }
+    .modern-pay-card input[type="submit"] {
+        margin-top: 15px; background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; font-family: inherit;
+    }
+    .modern-pay-card input[type="submit"]:hover { opacity: 0.9; }
+
+    .modern-credits-input {
+        padding: 10px; border: 2px solid var(--border-color); border-radius: 8px; font-family: inherit; background: var(--bg-color); color: var(--text-color);
+    }

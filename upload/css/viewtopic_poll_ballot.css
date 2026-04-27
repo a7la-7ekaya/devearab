@@ -1,0 +1,153 @@
+
+/* الحاوية الرئيسية للاستطلاع (تأخذ نفس شكل أقسام المنتدى) */
+.poll-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* عنوان الاستطلاع */
+.poll-header {
+    font-size: 1.3rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    gap: 10px;
+}
+.poll-header h2 { font-size: 1.3rem; display: flex; align-items: center; gap: 10px; margin: 0; }
+.poll-header i { color: var(--primary-color); font-size: 1.5rem; }
+.close-poll-btn { font-size: 0.9rem; color: #ef4444; font-weight: bold; }
+
+/* خيارات التصويت (نمط البطاقات) */
+.poll-options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+.radio-wrap label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.radio-wrap label:hover {
+    border-color: var(--primary-color);
+    transform: translateX(-5px); /* تأثير حركي لليمين لأن الموقع RTL */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.radio-wrap input[type="radio"], .radio-wrap input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* أزرار الاستطلاع */
+.poll-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border-color);
+}
+.poll-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid transparent;
+}
+.poll-btn.submit-btn {
+    background: var(--primary-color);
+    color: #fff;
+}
+.poll-btn.submit-btn:hover { background: #7c3aed; transform: translateY(-2px); }
+.poll-btn.link-btn {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+.poll-btn.link-btn:hover { background: var(--border-color); color: var(--primary-color); }
+
+/* شريط النتائج (Progress Bar) */
+.poll-result-list { display: flex; flex-direction: column; gap: 15px; }
+.poll-result-item dt {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+.poll-result-item dd { margin: 0; }
+.poll-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.poll-bar-wrap {
+    flex-grow: 1;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    height: 14px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.poll-bar {
+    background: var(--primary-color);
+    height: 100%;
+    border-radius: 20px;
+    transition: width 1s ease-in-out;
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+}
+.poll-num, .poll-percent {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    min-width: 40px;
+}
+.poll-percent { color: var(--primary-color); }
+
+/* تفاصيل المصوتين والإحصائيات */
+.option_voters_list {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+    background: var(--bg-color);
+    padding: 8px;
+    border-radius: 6px;
+    display: inline-block;
+}
+.poll-total-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--bg-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 1px solid var(--border-color);
+}
+.poll-total-box .poll-total-number { color: var(--primary-color); }
+.poll-meta-msg { font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 15px; }

@@ -1,0 +1,16 @@
+    .modern-ip-page { direction: rtl; text-align: right; }
+    .modern-ip-header { color: var(--primary-color); font-size: 1.5rem; border-right: 4px solid var(--primary-color); padding-right: 15px; margin: 2rem 0 1rem; }
+    
+    .modern-ip-details { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 2rem; }
+    @media(max-width:600px){ .modern-ip-details { grid-template-columns: 1fr; } }
+    .modern-ip-details div { background: var(--bg-color); padding: 15px; border-radius: 8px; border: 1px dashed var(--border-color); }
+    .modern-ip-details dt { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px; }
+    .modern-ip-details dd { font-size: 1.1rem; font-weight: bold; color: var(--text-color); margin: 0; }
+
+    .modern-ip-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 2rem; }
+    .modern-ip-table th { background: var(--bg-color); color: var(--primary-color); padding: 12px 15px; text-align: right; border-bottom: 2px solid var(--border-color); }
+    .modern-ip-table td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); color: var(--text-color); }
+    .modern-ip-table tr:last-child td { border-bottom: none; }
+    .modern-ip-table a { color: var(--primary-color); font-weight: bold; }
+    
+    .modern-ip-preview { background: var(--bg-color); border: 1px solid var(--border-color); border-right: 4px solid var(--primary-color); padding: 2rem; border-radius: 12px; line-height: 1.7; color: var(--text-color); margin-bottom: 2rem; }

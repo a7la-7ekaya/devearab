@@ -1,0 +1,8 @@
+    .modern-merge-select { direction: rtl; text-align: right; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin: 2rem 0; }
+    
+    .modern-jump-wrap { background: var(--bg-color); padding: 15px; border-radius: 10px; display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; border: 1px solid var(--border-color); }
+    .modern-jump-wrap select { padding: 10px; border: 2px solid var(--border-color); border-radius: 8px; font-family: inherit; flex: 1; outline: none; }
+    .modern-jump-wrap select:focus { border-color: var(--primary-color); }
+    
+    .btn-merge-select { background: var(--primary-color); color: white; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; font-family: inherit; cursor: pointer; transition: 0.3s; }
+    .btn-merge-select:hover { transform: translateY(-2px); opacity: 0.9; }

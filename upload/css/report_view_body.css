@@ -1,0 +1,25 @@
+    .modern-report-view { direction: rtl; text-align: right; }
+    .modern-report-header { border-right: 4px solid var(--primary-color); padding-right: 15px; margin-bottom: 2rem; }
+    .modern-report-header h1 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 10px; }
+    .modern-breadcrumbs { font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .modern-breadcrumbs a { color: var(--primary-color); font-weight: bold; }
+
+    .modern-report-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.02); margin-bottom: 2rem; }
+    .modern-report-table { width: 100%; border-collapse: collapse; }
+    .modern-report-table td { padding: 15px 20px; border-bottom: 1px solid var(--border-color); color: var(--text-color); vertical-align: top; }
+    .modern-report-table tr:last-child td { border-bottom: none; }
+    .modern-report-title { background: var(--bg-color); font-weight: bold; width: 200px; color: var(--text-muted); border-left: 1px solid var(--border-color); }
+    
+    .modern-status-form { display: flex; align-items: center; gap: 10px; }
+    .modern-status-form select { padding: 8px 15px; border: 2px solid var(--border-color); border-radius: 8px; font-family: inherit; outline: none; }
+    .modern-status-form select:focus { border-color: var(--primary-color); }
+    
+    .btn-report { background: var(--primary-color); color: white; border: none; padding: 8px 15px; border-radius: 8px; font-weight: bold; font-family: inherit; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px; }
+    .btn-report:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .report-text-box { background: var(--bg-color); padding: 15px; border-radius: 8px; border: 1px dashed var(--border-color); line-height: 1.7; margin-bottom: 10px; }
+    
+    @media (max-width: 768px) {
+        .modern-report-table td { display: block; width: 100%; border-left: none; }
+        .modern-report-title { border-bottom: 1px dashed var(--border-color); background: transparent; color: var(--primary-color); }
+    }

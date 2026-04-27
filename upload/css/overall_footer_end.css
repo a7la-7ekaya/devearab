@@ -1,0 +1,282 @@
+
+.footer-copyright-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.designer-rights {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.designer-rights a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+/* ================= الفوتر الاحترافي (معدل لليمين لليسار) ================= */
+.main-footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 10;
+    direction: rtl; /* إجبار الفوتر ليكون من اليمين لليسار */
+    text-align: right; /* محاذاة كل النصوص لليمين */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* قسم عن المنتدى */
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* لضمان البدء من اليمين */
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .footer-logo { justify-content: center; }
+}
+
+.footer-about p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* روابط السوشيال ميديا */
+.social-links {
+    display: flex;
+    justify-content: flex-start; /* لتبدأ الأيقونات من اليمين */
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .social-links { justify-content: center; }
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* القوائم والروابط السريعة */
+.footer-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0; /* تثبيت الخط السفلي لليمين */
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .footer-links h3::after {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 0; /* إزالة المسافة البادئة الافتراضية للقوائم العربية */
+}
+
+.footer-links ul li a {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-links ul li a i {
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+    transform: translateX(-5px); /* التحريك لليسار عند التمرير */
+}
+
+/* الشريط السفلي (حقوق النشر وزر الإدارة) */
+.footer-bottom {
+    background-color: var(--bg-color);
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-bottom-flex {
+    display: flex;
+    justify-content: space-between; /* الحقوق يمين، والزر يسار */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .footer-bottom-flex {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* تصميم زر الإدارة */
+span.admin-link-btn a{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ef4444; 
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+}
+span.admin-link-btn a:before {
+    content: "\f085";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;    
+}
+        
+
+
+
+/* إخفاء الزر إذا لم يكن هناك رابط حقيقي */
+.admin-link-btn[href=""], 
+.admin-link-btn[href="{ADMIN_LINK}"] {
+    display: none !important;
+}
+/* تنسيق الصندوق العام للحقوق */
+.footer-copyright-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط العناصر */
+    gap: 10px;
+    padding: 10px 0;
+}
+
+/* تنسيق نص حقوق الموقع */
+.copyright-text {
+    font-size: 0.95rem;
+    color: #6b7280; /* لون رمادي أنيق */
+    margin: 0;
+}
+
+/* تنسيق شارة حقوق المصمم (الخلفية والإطار) */
+.designer-rights {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f3f4f6; /* خلفية رمادية فاتحة جداً */
+    padding: 6px 16px;
+    border-radius: 50px; /* جعلها دائرية من الأطراف */
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease; /* تأثير انتقال ناعم */
+}
+
+/* تأثير عند مرور الماوس على الشارة كاملة */
+.designer-rights:hover {
+    background-color: #ede9fe; /* خلفية تميل للبنفسجي الفاتح */
+    border-color: #c4b5fd;
+    transform: translateY(-2px); /* ارتفاع خفيف للأعلى */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* تنسيق أيقونة الكود */
+.code-icon {
+    color: #8b5cf6; /* لون بنفسجي احترافي */
+    font-size: 1rem;
+}
+
+/* التنسيق الاحترافي للرابط نفسه */
+.designer-rights a {
+    color: #6d28d9; /* لون النص الافتراضي */
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none; /* إزالة الخط السفلي الافتراضي البشع */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* إنشاء خط سفلي مخفي يظهر بحركة أنيقة عند مرور الماوس */
+.designer-rights a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* يبدأ بدون عرض */
+    height: 2px;
+    bottom: -3px;
+    right: 0; /* يبدأ من اليمين لليسار لأن الموقع عربي */
+    background-color: #8b5cf6;
+    transition: width 0.3s ease-in-out; /* سرعة ظهور الخط */
+}
+
+/* تفعيل الخط السفلي عند مرور الماوس */
+.designer-rights a:hover::after {
+    width: 100%; /* يصبح العرض كامل */
+}
+
+/* تغيير لون النص عند مرور الماوس */
+.designer-rights a:hover {
+    color: #8b5cf6; 
+}      

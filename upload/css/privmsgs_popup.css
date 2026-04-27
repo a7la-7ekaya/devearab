@@ -1,0 +1,10 @@
+  body { font-family: 'Tajawal', sans-serif; background: #f4f6f9; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .pm-popup-box { background: #ffffff; width: 90%; max-width: 400px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; text-align: center; border: 1px solid #e5e7eb; }
+        .pm-popup-header { background: #8b5cf6; color: white; padding: 15px; font-size: 1.2rem; font-weight: bold; position: relative; }
+        .pm-popup-icon { font-size: 3rem; color: #8b5cf6; margin: 20px 0 10px; display: block; }
+        .pm-popup-body { padding: 20px; color: #1f2937; font-size: 1.1rem; line-height: 1.5; }
+        .pm-popup-footer { padding: 15px; background: #f9fafb; border-top: 1px solid #e5e7eb; display: flex; justify-content: center; gap: 10px; }
+        .btn-pm { background: #8b5cf6; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-family: inherit; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-pm:hover { background: #7c3aed; }
+        .btn-pm-close { background: #e5e7eb; color: #4b5563; }
+        .btn-pm-close:hover { background: #d1d5db; }

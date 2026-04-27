@@ -1,0 +1,71 @@
+    .online-page-header {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid var(--border-color);
+        border-right: 4px solid var(--primary-color);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    .online-page-header h1 {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .online-page-header p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+    }
+
+    .modern-table-container {
+        width: 100%;
+        overflow-x: auto;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    .modern-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: right;
+    }
+
+    .modern-table th {
+        background: var(--bg-color);
+        color: var(--text-color);
+        padding: 1rem;
+        font-size: 1rem;
+        border-bottom: 2px solid var(--border-color);
+    }
+
+    .modern-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-color);
+        font-size: 0.95rem;
+    }
+
+    .modern-table tr:hover td {
+        background: var(--bg-color);
+    }
+
+    .modern-table td a {
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+
+    .modern-table td a:hover {
+        text-decoration: underline;
+    }
+
+    /* استجابة الجوال للجدول */
+    @media (max-width: 768px) {
+        .modern-table thead { display: none; }
+        .modern-table tr { display: block; border-bottom: 2px solid var(--border-color); padding: 10px 0; }
+        .modern-table td { display: flex; justify-content: space-between; border: none; padding: 0.5rem 1rem; }
+        .modern-table td::before { content: attr(data-th); font-weight: bold; color: var(--text-muted); }
+    }

@@ -1,0 +1,143 @@
+
+/* --- الحاوية الرئيسية --- */
+.cyb-stats-wrapper {
+    background: var(--card-bg); border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-color); border-radius: 12px;
+    margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    overflow: hidden; font-family: 'Tajawal', sans-serif;
+    display: flex; direction: rtl; flex-direction: row-reverse; 
+}
+@media (max-width: 992px) { .cyb-stats-wrapper { flex-direction: column; } }
+
+/* --- عمود المواضيع (اليسار) --- */
+.cyb-col-right { flex: 3; border-right: 1px solid var(--border-color); border-left: none; min-width: 0; }
+@media (max-width: 992px) { .cyb-col-right { border-right: none; border-bottom: 1px solid var(--border-color); } }
+
+/* --- عمود الأعضاء (اليمين) - تم توحيد الخلفية --- */
+.cyb-col-left { flex: 1; background-color: var(--card-bg); min-width: 280px; }
+
+/* --- التبويبات العلوية --- */
+.cyb-tabs {
+    display: flex; background-color: var(--bg-color); border-bottom: 1px solid var(--border-color);
+    margin: 0; padding: 0; list-style: none; overflow-x: auto;
+}
+.cyb-tabs::-webkit-scrollbar { height: 3px; }
+.cyb-tabs li {
+    padding: 12px 15px; cursor: pointer; border-left: 1px solid var(--border-color);
+    color: var(--text-muted); font-weight: 700; font-size: 0.95rem; white-space: nowrap; transition: 0.3s;
+}
+.cyb-tabs li:hover { color: var(--primary-color); }
+.cyb-tabs li.active {
+    background-color: var(--card-bg); color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color); margin-bottom: -1px;
+}
+
+/* --- رأس عمود الأعضاء - تم توحيد الشكل مع التبويبات --- */
+.cyb-left-header { padding: 10px; background-color: var(--bg-color); border-bottom: 1px solid var(--border-color); text-align: center; height: 48px; display: flex; align-items: center;}
+.cyb-left-header select {
+    width: 100%; font-size: 0.95rem; font-family: inherit; /* padding: 6px 10px; */
+    border-radius: 6px; border: 1px solid var(--border-color); background: var(--card-bg);
+    color: var(--text-color); outline: none; direction: rtl; cursor: pointer;
+}
+
+/* --- محتوى القوائم --- */
+.cyb-panel { display: none; padding: 10px 15px; height: 350px; overflow-y: auto; }
+.cyb-panel.active { display: block; }
+.cyb-panel::-webkit-scrollbar { width: 5px; }
+.cyb-panel::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
+.cyb-list { list-style: none; padding: 0; margin: 0; }
+.cyb-list li {
+    display: flex; justify-content: space-between; padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color); align-items: center; direction: rtl; 
+}
+.cyb-list li:last-child { border-bottom: none; }
+
+/* --- تنسيق المواضيع والأعضاء (يمين السطر) --- */
+.topic-flex { display: flex; align-items: center; gap: 10px; overflow: hidden; white-space: nowrap; }
+.topic-flex a { color: var(--text-color); font-weight: 500; font-size: 0.95rem; text-overflow: ellipsis; overflow: hidden; transition: 0.2s;}
+.topic-flex a:hover { color: var(--primary-color); }
+.topic-icon { color: var(--primary-color); font-size: 1.1rem; opacity: 0.8; }
+
+/* --- الأرقام الملونة --- */
+.topic-num, .rank-num {
+    color: #fff; width: 22px; height: 22px; line-height: 22px; text-align: center;
+    font-size: 0.8rem; border-radius: 6px; font-weight: bold; flex-shrink: 0;
+}
+.num-c1 { background-color: #ef4444; } 
+.num-c2 { background-color: #f59e0b; } 
+.num-c3 { background-color: #10b981; } 
+.num-c4 { background-color: #3b82f6; } 
+.num-c5 { background-color: #8b5cf6; } 
+
+/* --- شارة العضو (الاسم) --- */
+.vb-badge {
+    display: inline-flex; align-items: center; gap: 5px; background: var(--bg-color);
+    border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 20px;
+    font-weight: bold; font-size: 0.85rem;
+}
+.vb-badge a { color: var(--text-color); }
+
+/* --- تنسيق المسافات (يسار السطر للمواضيع) --- */
+.topic-meta { display: flex; align-items: center; color: var(--text-muted); font-size: 0.85rem; flex-shrink: 0; direction: rtl; }
+.meta-item { display: flex; align-items: center; gap: 8px; background: transparent; border: none; padding: 0; }
+.meta-item:nth-child(1) { width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meta-item:nth-child(2) { width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-right: 15px; }
+.meta-item i { color: var(--text-muted); font-size: 0.85rem; width: 15px; text-align: center; }
+.meta-item b a { color: var(--primary-color); font-weight: bold; }
+.rank-score { color: var(--primary-color); font-weight: bold; font-size: 0.9rem;}
+
+/* =========================================
+   الرسم البياني (الأكثر شعبية ونشاطاً)
+   ========================================= */
+.chart-container { width: 100% !important; display: block !important; padding: 0 !important; margin: 0 !important; }
+.stat-progress-wrapper { width: 170px; display: flex; flex-direction: column; gap: 4px; }
+.stat-progress-text { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: bold; color: var(--text-muted); }
+.stat-progress-text .val { color: var(--primary-color); font-size: 0.8rem;}
+.stat-progress-track { width: 100%; height: 6px; background-color: #e5e7eb; border-radius: 10px; overflow: hidden; }
+.stat-progress-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); width: 0%; transition: width 1s ease-in-out; }
+#tab-most-active .stat-progress-fill { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+
+/* =========================================
+   بطاقة العضو المنبثقة (Hover Card)
+   ========================================= */
+.user-hover-card {
+    position: absolute; z-index: 99999; width: 260px; background: var(--card-bg);
+    border: 1px solid var(--border-color); border-top: 4px solid var(--primary-color);
+    border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 15px;
+    direction: rtl; text-align: right; font-family: 'Tajawal', sans-serif;
+    display: none; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+}
+.user-hover-card.show { display: block; opacity: 1; pointer-events: auto; }
+.uhc-header { display: flex; align-items: center; justify-content: flex-start; gap: 15px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+.uhc-avatar { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color); padding: 2px; }
+.uhc-user-info { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+.uhc-name { font-size: 1.2rem; font-weight: 800; color: var(--text-color); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.uhc-rank { font-size: 0.85rem; color: var(--text-muted); font-weight: bold; background: var(--bg-color); padding: 2px 8px; border-radius: 10px; display: inline-block; width: fit-content;}
+.uhc-stats { display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text-muted); }
+.uhc-stat-row { display: flex; justify-content: space-between; align-items: center; background: var(--bg-color); padding: 8px 12px; border-radius: 8px; }
+.uhc-stat-row span { display: flex; align-items: center; gap: 8px; }
+.uhc-stat-row span i { color: var(--primary-color); width: 16px; text-align: center; font-size: 1rem;}
+.uhc-stat-row strong { color: var(--text-color); font-weight: 800; }
+.uhc-pm-btn {
+    display: block; width: 100%; text-align: center; background: var(--bg-color);
+    color: var(--primary-color); border: 1px solid var(--primary-color); padding: 10px;
+    border-radius: 8px; margin-top: 15px; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: 0.3s;
+}
+.uhc-pm-btn:hover { background: var(--primary-color); color: #fff; }
+.uhc-loading { text-align: center; padding: 20px; color: var(--primary-color); font-weight: bold;}
+  
+span.a7la-loop {
+    font-size: 0;
+}
+
+span.a7la-loop a {
+    font-size: 0;
+}
+
+span.a7la-loop a span strong {
+    font-size: 14px;
+}
+
+.material-symbols-outlined {
+    padding-right: 150px;
+}

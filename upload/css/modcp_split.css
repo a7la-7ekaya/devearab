@@ -1,0 +1,13 @@
+    .modern-split-page { direction: rtl; text-align: right; }
+    .modern-split-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+    .modern-split-input { width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-color); color: var(--text-color); font-family: inherit; font-size: 1rem; margin-top: 5px; outline: none; }
+    .modern-split-input:focus { border-color: var(--primary-color); }
+    .modern-split-row { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+    .modern-split-row > div { flex: 1; min-width: 250px; }
+    
+    .modern-review-post { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1.5rem; overflow: hidden; }
+    .modern-review-header { background: var(--bg-color); padding: 15px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .modern-review-header h2 { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+    .modern-review-details { display: flex; align-items: center; gap: 10px; font-weight: bold; color: var(--primary-color); }
+    .modern-review-details input { width: 18px; height: 18px; accent-color: #ef4444; }
+    .modern-review-body { padding: 20px; color: var(--text-color); line-height: 1.7; }

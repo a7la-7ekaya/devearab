@@ -1,0 +1,46 @@
+    .modern-gallery-header {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .modern-gallery-header h1 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .modern-gallery-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+    }
+    .modern-gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+    /* تنسيقات سيتم تطبيقها على الصور القادمة من السكربت */
+    .container-imgs-list img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+    .container-imgs-list img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-color: var(--primary-color);
+    }

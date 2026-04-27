@@ -1,0 +1,39 @@
+.forum-error-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid #ef4444; /* اللون الأحمر الفاتح */
+    margin: 3rem auto;
+    max-width: 700px;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.08);
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+}
+
+.forum-error-card .error-icon {
+    font-size: 4rem;
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+    animation: pulseError 2s infinite;
+}
+
+.forum-error-card .error-title {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.forum-error-card .error-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+@keyframes pulseError {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+} 

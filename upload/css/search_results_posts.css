@@ -1,0 +1,66 @@
+    /* ================= نتائج البحث (مشاركات) ================= */
+    .modern-search-posts {
+        direction: rtl;
+        text-align: right;
+    }
+    .modern-search-posts .page-header {
+        margin-bottom: 2rem;
+        border-right: 4px solid var(--primary-color);
+        padding-right: 15px;
+    }
+    .modern-search-posts .page-header h1 {
+        color: var(--primary-color);
+        font-size: 1.6rem;
+    }
+    .modern-post-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        overflow: hidden;
+        transition: 0.3s;
+    }
+    .modern-post-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+        border-color: var(--primary-color);
+    }
+    .modern-post-card h2 {
+        background: var(--bg-color);
+        padding: 15px;
+        font-size: 1.2rem;
+        border-bottom: 1px solid var(--border-color);
+        margin: 0;
+    }
+    .modern-post-card h2 a {
+        color: var(--text-color);
+    }
+    .modern-post-card h2 a:hover {
+        color: var(--primary-color);
+    }
+    .modern-post-content {
+        padding: 1.5rem;
+        color: var(--text-color);
+        line-height: 1.7;
+        font-size: 1.05rem;
+    }
+    .modern-post-footer {
+        background: var(--bg-color);
+        padding: 15px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+    }
+    .modern-post-footer strong a {
+        color: var(--primary-color);
+    }
+    .modern-pagination {
+        margin: 2rem 0;
+        display: flex;
+        justify-content: center;
+    }
