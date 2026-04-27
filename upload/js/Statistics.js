@@ -1,4 +1,4 @@
-
+// وظائف تبديل التبويبات
 function switchTopicTab(event, targetId) {
     document.querySelectorAll('.cyb-col-right .cyb-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('#topicTabs li').forEach(t => t.classList.remove('active'));
@@ -40,7 +40,7 @@ $(document).ready(function() {
     let hiddenContainer = document.getElementById('hidden-raw-stats');
     if(hiddenContainer) hiddenContainer.remove();
 
-   
+    // 2. إنشاء الرسم البياني 
     setTimeout(function() {
         function buildCharts(tabId) {
             let items = $(tabId + ' .chart-container');
@@ -68,7 +68,7 @@ $(document).ready(function() {
         buildCharts('#tab-most-popular');
     }, 500);
 
-
+    // 3. بطاقة العضو المنبثقة (Hover Card) المحدثة للتوافق مع التصميم الجديد
     if ($('#userHoverCard').length === 0) { $('body').append('<div id="userHoverCard" class="user-hover-card"></div>'); }
     let hoverCard = $('#userHoverCard');
     let cache = {}; let hideTimer;
@@ -89,20 +89,20 @@ $(document).ready(function() {
         hoverCard.html('<div class="uhc-loading"><i class="fas fa-circle-notch fa-spin fa-2x"></i><br><br>جاري جلب البيانات...</div>');
 
         $.get(profileUrl, function(data) {
-            
+            // تنظيف البيانات من السكريبتات لتجنب المشاكل أثناء الـ Parsing
             let cleanHtml = data.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
             let htmlData = $('<div>').html(cleanHtml);
             
-           
+            // 1. جلب الصورة الرمزية
             let avatar = htmlData.find('.pro-avatar-box img').attr('src');
             if (!avatar || avatar.indexOf('no_avatar') !== -1 || avatar.indexOf('deleted') !== -1) {
                 avatar = htmlData.find('img[src*="avatar"]').first().attr('src') || 'https://i.postimg.cc/cJDvR91C/default-avatar.png';
             }
 
-            
+            // 2. جلب الاسم (مع لون المجموعة إن وجد)
             let userNameHtml = htmlData.find('.profile-username span').prop('outerHTML') || fallbackName;
 
-            
+            // 3. جلب الرتبة (النص + الصورة)
             let rankText = "عضو بالمنتدى";
             let rankElement = htmlData.find('.profile-rank');
             if (rankElement.length > 0) {
@@ -114,7 +114,7 @@ $(document).ready(function() {
                 }
             }
 
-            
+            // دالة للبحث الذكي عن الحقول (النشاط، المساهمات، الجنس، التسجيل)
             function getFieldData(labelToFind, isImage = false) {
                 let result = '';
                 htmlData.find('dt.pf-label').each(function() {
@@ -130,13 +130,13 @@ $(document).ready(function() {
                 return result;
             }
 
-            
+            // 4. استخراج البيانات المتبقية
             let gender = getFieldData('الجنس', true) || 'غير محدد';
             let postsCount = getFieldData('المساهمات', false) || '0';
             let activity = getFieldData('النشاط', false) || 'متوسط';
             let joinDate = getFieldData('تاريخ التسجيل', false) || '-';
             
-            
+            // تحديد أيقونة الجنس
             let genderIcon = gender.indexOf('ذكر') !== -1 ? 'fa-mars' : (gender.indexOf('انثى') !== -1 || gender.indexOf('أنثى') !== -1 ? 'fa-venus' : 'fa-genderless');
             
             let pmLink = '/privmsg?mode=post&u=' + profileUrl.replace(/\D/g, '');
